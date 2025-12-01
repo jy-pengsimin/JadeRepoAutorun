@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# 启用别名扩展
+shopt -s expand_aliases
+alias jadeserve='JadeServe --user psm --password 123456 --port 19462 '
+
+jadeserve run_schedule MacroAssetDataProcess main
+
+jadeserve run_schedule MacroBenchmarkAssetRiskParity main
+
+# jadeserve run_schedule MacroBenchmarkAssetClusterRiskParity main
+jadeserve run_schedule MacroBenchmarkAssetClusterWithLeverageRiskParity main
+
+jadeserve run_schedule MacroAlphaEconomicCycleModel main
+
+jadeserve run_schedule MacroRiskFactorWindowIdentification main
+jadeserve run_schedule MacroRiskFactorLoadingsAlign main
+jadeserve run_schedule MacroRiskFactorHistoryBuilder main
+jadeserve run_schedule MacroRiskFactorUpdate main
+jadeserve run_schedule MacroRiskFactorSelection main
+jadeserve run_schedule MacroRiskFactorExposureWindow main
+jadeserve run_schedule MacroRiskFactorExposureCalculate main
+
+jadeserve run_schedule MacroRiskControlFactorRCOriginBound main
+jadeserve run_schedule MacroRiskControlFactorRCBound main
+
+jadeserve run_schedule MacroRiskControlAssetWeightOriginBound main
+jadeserve run_schedule MacroRiskControlAssetWeightBound main
+
+jadeserve run_schedule MacroOptimizeModel main
